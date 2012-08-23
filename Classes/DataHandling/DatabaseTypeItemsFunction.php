@@ -1,8 +1,11 @@
 <?php
+namespace TYPO3\CMS\Adodb\DataHandling;
+
 /***************************************************************
  *  Copyright notice
  *
  *  (c) 2004-2011 Robert Lemke (robert@typo3.org)
+ *  (c) 2006-2011 Karsten Dambekalns (karsten@typo3.org)
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -22,25 +25,35 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 /**
- * Check connection wizard for ADO DB databases. For usage in a popup window.
+ * Tceforms class for adodb
  *
  * @author Robert Lemke <robert@typo3.org>
+ * @author Karsten Dambekalns <karsten@typo3.org>
  */
-// Build TYPO3 enviroment:
-$BACK_PATH = '../../../typo3/';
-define('TYPO3_MOD_PATH', 'sysext/adodb/');
-require $BACK_PATH . 'init.php';
-// Include ADODB library:
-require_once \TYPO3\CMS\Core\Extension\ExtensionManager::extPath('adodb') . 'adodb/adodb.inc.php';
-// Include language labels:
-$LANG->includeLLFile('EXT:adodb/locallang_wizard.xml');
-/*
- * @deprecated since 6.0, the classname tx_adodb_checkconnectionwizard and this file is obsolete
- * and will be removed by 7.0. The class was renamed and is now located at:
- * typo3/sysext/adodb/Classes/View/CheckConnectionWizardView.php
- */
-require_once \TYPO3\CMS\Core\Extension\ExtensionManager::extPath('adodb') . 'Classes/View/CheckConnectionWizardView.php';
-// Make instance:
-$SOBE = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Adodb\\View\\CheckConnectionWizardView');
-$SOBE->main();
+class DatabaseTypeItemsFunction {
+
+	/**
+	 * @todo Define visibility
+	 */
+	public function itemsProcFunc_dbtype(&$params, $pObj) {
+		if (is_callable('sybase_get_last_message')) {
+			$params['items'][] = array('Sybase', 'sybase');
+		}
+		if (is_callable('odbc_error')) {
+			$params['items'][] = array('ODBC', 'odbc');
+		}
+		if (is_callable('mysql_error')) {
+			$params['items'][] = array('MySQL', 'mysql');
+		}
+		if (is_callable('mssql_connect')) {
+			$params['items'][] = array('MSSQL', 'mssql');
+		}
+		if (is_callable('ocilogon')) {
+			$params['items'][] = array('Oracle', 'oci8');
+		}
+	}
+
+}
+
+
 ?>
