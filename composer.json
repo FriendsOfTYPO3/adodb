@@ -3,12 +3,17 @@
 	"type": "typo3-cms-extension",
 	"description": "Includes a current version of ADOdb, a database abstraction library for PHP, for further use with EXT:dbal",
 	"homepage": "https://typo3.org",
-	"license": ["GPL-2.0+"],
+        "license": ["GPL-2.0-or-later"],
         "keywords" : [ "database", "abstraction", "layer", "library", "typo3" ],
 	"require": {
 		"typo3/cms-core": "~8.4"
 	},
 	"replace": {
 		"typo3/cms-adodb": "*"
-	}
+	},
+        "extra": {
+                "typo3/cms": {
+                        "extension-key": "adodb"
+                }
+        }
 }
