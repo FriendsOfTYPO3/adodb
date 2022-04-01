@@ -1,16 +1,105 @@
-=============================================
-Changes made in EXT:adodb missing in upstream
-=============================================
+.. include:: /Includes.rst.txt
+
+=========================
+TYPO3 extension ``adodb``
+=========================
+
+:Extension key:
+   adodb
+
+:Package name:
+   friendsoftypo3/adodb
+
+:Version:
+   |release|
+
+:Language:
+   en
+
+:Author:
+   TYPO3 contributors
+
+:License:
+   This document is published under the
+   `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+   license.
+
+:Rendered:
+   |today|
+
+----
+
+This extension ships the PHP database abstraction library *ADOdb* which is
+mainly used by the TYPO3 extension `dbal`_.
+
+The functionality was part of TYPO3, until TYPO3 v8.4, and moved into its own
+extension, receiving its own public repository.
+
+.. _dbal: https://extensions.typo3.org/extension/dbal/
+
+----
+
+**Table of Contents:**
+
+.. contents::
+   :backlinks: top
+   :depth: 2
+   :local:
+
+Installation
+============
+
+The latest version can be installed via `TER`_ or via composer by running
+
+.. code-block:: bash
+
+   composer require friendsoftypo3/adodb
+
+in a TYPO3 v8.4+ installation.
+
+.. _TER: https://extensions.typo3.org/extension/adodb/
+
+Current state
+=============
+
+This extension provides a wrapper for ADOdb plus some patched changes which were
+needed for the TYPO3 extension dbal and TYPO3 until v8.4. It is shipped as is.
+
+Contribution
+============
+
+Feel free to submit any pull request, or add documentation, tests, as you please.
+We will publish a new version every once in a while, depending on the amount of
+changes and pull requests submitted.
+
+License
+-------
+
+The extension is published under GPL v2+, all included third-party libraries are
+published under their respective licenses.
+
+Authors
+-------
+
+Over a dozen contributors have been working on this area while this
+functionality was part of the TYPO3 Core. This package is now maintained by a
+loose group of TYPO3 enthusiasts inside the TYPO3 Community. Feel free to
+contact `Benni Mack`_ for any questions regarding ADOdb.
+
+.. _Benni Mack: benni.mack@typo3.org
+
+Changes made to ADOdb
+=====================
 
 Now in use
-==========
+----------
+
 The currently used ADOdb version is 5.19 [1]_.
 
 .. [1] https://github.com/ADOdb/ADOdb/releases/tag/v5.19
 
-
 Our changes
-===========
+-----------
 
 This is a list of changes we made in ADOdb that must re-applied if EXT:adodb is
 updated to upstream.
@@ -41,9 +130,7 @@ updated to upstream.
 .. _71244: https://forge.typo3.org/issues/71244
 .. _61269: https://forge.typo3.org/issues/61269
 
-
 Diff
-====
+----
 
 You'll find a diff file in EXT:adodb/Documentation/typo3-adodb.diff.
-
