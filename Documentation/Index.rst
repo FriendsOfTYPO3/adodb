@@ -1,8 +1,8 @@
 .. include:: /Includes.rst.txt
 
-=========================
-TYPO3 extension ``adodb``
-=========================
+====================
+Integration of ADOdb
+====================
 
 :Extension key:
    adodb
