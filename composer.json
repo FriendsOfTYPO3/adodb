@@ -2,7 +2,12 @@
 	"name": "friendsoftypo3/adodb",
 	"type": "typo3-cms-extension",
 	"description": "Includes a current version of ADOdb, a database abstraction library for PHP, for further use with EXT:dbal",
-	"homepage": "https://typo3.org",
+	"homepage": "https://extensions.typo3.org/extension/adodb/",
+	"support": {
+		"issues": "https://github.com/FriendsOfTYPO3/adodb/issues",
+		"source": "https://github.com/FriendsOfTYPO3/adodb",
+		"docs": "https://docs.typo3.org/p/friendsoftypo3/adodb/main/en-us/"
+	},
 	"license": ["GPL-2.0+"],
         "keywords" : [ "database", "abstraction", "layer", "library", "typo3" ],
 	"require": {
